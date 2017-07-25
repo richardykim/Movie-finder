@@ -5,16 +5,23 @@ const Display = ({shows}) =>{
   if (!shows){
     return <div>Loading...</div>
   };
+
+  const videoList = shows.map((video) => {
+    const poster = video.poster_path
+    const imageUrl = `http://image.tmdb.org/t/p/w185/${poster}`
+    return (
+      <ul>
+        <li id="movieTitle">{video.title}</li>
+        <li><img className="media-object" src={imageUrl}/></li>
+      </ul>
+    );
+  });
+
+
   const movie = shows[0]
-  const poster = shows[0].poster_path
-  const imageUrl = `http://image.tmdb.org/t/p/w185/${poster}`
   return(
     <div>
-      {console.log(shows[0])}
-      {movie.title}
-      <br />
-      {movie.vote_average}
-      <img className="media-object" src={imageUrl}/>
+      {videoList}
     </div>
   );
 };

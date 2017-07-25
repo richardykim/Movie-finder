@@ -3,7 +3,6 @@ import SearchBar from './search_bar'
 import Display from './display'
 import './App.css';
 
-const API_KEY = 'ac9fcc068de5367719b98d63133cbf6d'
 const mdb = require('moviedb')(API_KEY);
 
 class App extends Component {
