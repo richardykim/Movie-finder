@@ -3,7 +3,7 @@ import React from 'react';
 
 const Display = ({shows}) =>{
   if (!shows){
-    return <div>Please search something</div>
+    return <div>Please search for something</div>
   }
   if (!shows['results']){
     return <div>Loading...</div>
@@ -22,7 +22,7 @@ const Display = ({shows}) =>{
          </div>
          <div className="col s8">
           <li className="font-title">
-            {video.title}
+            {video.title} ({video.release_date.slice(0,4)})
           </li>
           <li>
             <div className="font-style"> Plot: </div> {video.overview}
