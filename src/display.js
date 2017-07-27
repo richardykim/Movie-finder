@@ -12,6 +12,7 @@ const Display = ({shows}) =>{
   const videoList = shows['results'].map((video) => {
     const poster = video.poster_path
     const imageUrl = `http://image.tmdb.org/t/p/w185/${poster}`
+    if(poster !== null){
     return (
       <ul>
         <div className="row">
@@ -33,7 +34,7 @@ const Display = ({shows}) =>{
          </div>
       </div>
      </ul>
-    );
+   )};
   });
 
 
