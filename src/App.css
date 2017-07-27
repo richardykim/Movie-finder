@@ -23,6 +23,10 @@
   to { transform: rotate(360deg); }
 }
 
-#movieTitle{
+.font-title{
   font-size: 1.3em;
+}
+
+.font-style{
+  font-weight: bold;
 }

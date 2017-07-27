@@ -3,17 +3,36 @@ import React from 'react';
 
 const Display = ({shows}) =>{
   if (!shows){
+    return <div>Please search something</div>
+  }
+  if (!shows['results']){
     return <div>Loading...</div>
   };
 
-  const videoList = shows.map((video) => {
+  const videoList = shows['results'].map((video) => {
     const poster = video.poster_path
     const imageUrl = `http://image.tmdb.org/t/p/w185/${poster}`
     return (
       <ul>
-        <li id="movieTitle">{video.title}</li>
-        <li><img className="media-object" src={imageUrl}/></li>
-      </ul>
+        <div className="row">
+         <div className="col s4 .left-align">
+           <li>
+             <img className="media-object" src={imageUrl}/>
+           </li>
+         </div>
+         <div className="col s8">
+          <li className="font-title">
+            {video.title}
+          </li>
+          <li>
+            <div className="font-style"> Plot: </div> {video.overview}
+          </li>
+          <li>
+            <div className="font-style">Voter Average: </div> {video.vote_average}
+          </li>
+         </div>
+      </div>
+     </ul>
     );
   });
 

@@ -10,16 +10,17 @@ class App extends Component {
     super(props);
     this.state = {
       shows:[''],
+      selectedMovie: null,
 
     }
     this.videoSearch = this.videoSearch.bind(this);
-    this.videoSearch('Titanic')
+    this.videoSearch('Spiderman')
   }
 
   videoSearch(term){
     mdb.searchMovie({ query: term }, (err, res) => {
       this.setState({
-        shows:res['results']
+        shows:res
       });
     });
   };
@@ -30,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-            <h1>Welcome to the show finder</h1>
+            <h1>Welcome to the Movie Finder</h1>
             <SearchBar onSearchTermChange={this.videoSearch}/>
             <Display shows={this.state.shows} />
         </div>
