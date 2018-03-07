@@ -3,7 +3,9 @@ import SearchBar from './search_bar'
 import Display from './display'
 import './App.css';
 
-const mdb = require('moviedb')(API_KEY);
+const key = process.env.REACT_APP_MOVIE_API_KEY
+const mdb = require('moviedb')(key);
+
 
 class App extends Component {
   constructor(props){
@@ -14,7 +16,7 @@ class App extends Component {
 
     }
     this.videoSearch = this.videoSearch.bind(this);
-    this.videoSearch('Spiderman')
+    this.videoSearch('')
   }
 
   videoSearch(term){
@@ -33,7 +35,9 @@ class App extends Component {
         <div className="container">
             <h1>Welcome to the Movie Finder</h1>
             <SearchBar onSearchTermChange={this.videoSearch}/>
-            <Display shows={this.state.shows} />
+            <Display
+            onMovieSelect = {selectedMovie => this.setState({selectedMovie})}
+            shows={this.state.shows} />
         </div>
       </div>
     );

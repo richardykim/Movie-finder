@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Display = ({shows}) =>{
+const Display = ({shows, onMovieSelect}) =>{
   if (!shows){
     return <div>Please search for something</div>
   }
@@ -17,7 +17,7 @@ const Display = ({shows}) =>{
       <ul>
         <div className="row">
          <div className="col s4 .left-align">
-           <li>
+           <li onClick={() => onMovieSelect(video)}>
              <img className="media-object" src={imageUrl}/>
            </li>
          </div>
@@ -37,8 +37,6 @@ const Display = ({shows}) =>{
    )};
   });
 
-
-  const movie = shows[0]
   return(
     <div>
       {videoList}
